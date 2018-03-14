@@ -5,9 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import devtools from '@vue/devtools';
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+if (process.env.NODE_ENV === 'development') {
+    devtools.connect();
+}
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
