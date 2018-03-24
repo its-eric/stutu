@@ -15,12 +15,12 @@ class AddBasicFieldsToUserTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->enum('role', ['admin', 'student', 'tutor']);
-            $table->date('birthday');
-            $table->enum('gender', ['male', 'female', 'not informed']);
-            $table->binary('profile_picture');
-            $table->string('experience', 1024);
-            $table->string('url', 512);
-            $table->string('expectation', 1024);
+            $table->date('birthday')->nullable();
+            $table->enum('gender', ['male', 'female', 'not informed'])->nullable();
+            $table->binary('profile_picture')->nullable();
+            $table->string('experience', 1024)->nullable();
+            $table->string('url', 512)->nullable();
+            $table->string('expectation', 1024)->nullable();
         });
     }
 
