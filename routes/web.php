@@ -22,3 +22,9 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('users', 'UserController');
+
+// Route::get('/profile', 'UserController@show');
+
+Route::get('/tutors', 'UserController@getTutors');
