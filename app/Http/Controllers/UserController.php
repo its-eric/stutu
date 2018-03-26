@@ -8,6 +8,12 @@ use Auth;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     * To check authentication.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -15,6 +21,7 @@ class UserController extends Controller
 
     /**
      * Display a listing of the resource (all users).
+     * Only admin can access this page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +31,7 @@ class UserController extends Controller
 
         if ( $currentUser->role == 'admin' )
         {
-            $users = User::paginate(25);
+            $users = User::paginate(25); //paginate
             return view('users.index', compact('users'));
         }
 
@@ -38,7 +45,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // same with register function
     }
 
     /**
@@ -49,27 +56,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // same with register function
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user (profile)
      *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        // $user = User::where('id', '=', $id)->first(); //return 1 object
-        // $user = User::where('id', '=', $id)->get(); //return collection
-
+        // get current user
         $user = Auth::user();
 
-        if ( $id == $user->id ) {
+        // check show/{id} on url is the same id with current user.
+        if ( $id == $user->id )
+        {
             return view('users.show', compact('user'));
         }
-
-        // $error = 'Page does not exist';
-        // return view('users.show', compact('error'));
 
         return 'Page does not exist';
     }
@@ -82,9 +86,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        // get current user
         $user = Auth::user();
 
-        if ( $id == $user->id ) {
+        // check show/{id} on url is the same id with current user.
+        if ( $id == $user->id )
+        {
             return view('users.edit', compact('user'));
         }
 
@@ -105,11 +112,10 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            // 'password' => 'required|string|min:6|confirmed',
-            // 'role' => 'required',
+            // 'password' => another page
+            // 'role' => cannot change
         ]);
 
-        // $user->name = $request->get('name');
         $user->update($request->all());
 
         $user->save();
@@ -128,9 +134,16 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * List tutor only.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function getTutors()
     {
         $tutors = User::where('role', 'tutor')->get();
-        dd($tutors);
+        // dd($tutors);
+        // Return
     }
 }
