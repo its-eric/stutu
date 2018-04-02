@@ -2,10 +2,17 @@
 <h1>ALL USERS- index page</h1>
 @foreach ($users as $user)
     <div>
-        {{ $user->name }}
-        {{ $user->email }}
-        {{ $user->role }}
+        <label>Name: {{ $user->name }}</label>
+        <label>Email: {{ $user->email }}</label>
+        <label>Role: {{ $user->role }}</label>
+
+        <form method="POST" action="/users/{{ $user->id }}">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
     </div>
+
 @endforeach
 
 {{ $users->links() }}

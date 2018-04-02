@@ -9,7 +9,8 @@
 
                 <div class="card-body">
                     Welcome {{ $user->name }} !<br>
-                    Role: {{ $user->role }}
+                    Role: {{ $user->role }}<br>
+                    ID: {{ $user->id }}
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -38,16 +39,7 @@
                     <br>
                     <a href="{{ url('courses') }}" value="all-courses">All Courses</a>
                     <br>
-
-                    <!-- "Your courses" function is only for logined tutor -->
-                    <form action="{{ url('courses') }}" method="get">
-                        @if ($user->role == 'tutor')
-                            <input type="hidden" name="current-id" value="{{ $user->id }}">
-                            <input type="submit" name="courses" value="your-courses">
-                        @endif
-                        <a href="{{ url('courses') }}" type="submit" name="courses" value="your-courses">Href</a>
-                    </form>
-
+                    <a href="{{ url('tutor-courses') }}" value="all-courses">Your Courses</a>
 
                 </div>
             </div>

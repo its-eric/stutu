@@ -131,10 +131,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = App\User::find($id);
+        $user = User::find($id);
         $user->delete();
 
-        return view('users.show', compact('user'));
+        return redirect()->action('UserController@index');
     }
 
     /**
