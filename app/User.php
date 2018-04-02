@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the courses for the user.
+     */
+    public function courses()
+    {
+        return $this->hasMany('App\Course');
+    }
+
+    public function addCourse(Course $course){
+        return $this->courses()->save($course);
+    }
 }

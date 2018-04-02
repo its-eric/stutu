@@ -15,6 +15,14 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'discount', 'tutition',
+        'name', 'description', 'discount', 'tuition_fee', 'user_id',
     ];
+
+    /**
+     * Get the course that owns the user.
+     */
+    public function course()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

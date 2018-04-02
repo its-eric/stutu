@@ -24,7 +24,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
+Route::resource('courses', 'CourseController');
 
-// Route::get('/profile', 'UserController@show');
+Route::post('/filter', 'FilterController@filterAll')->name('filter');
+// Route::post('/filter/user', 'FilterController@filterUser');
 
-Route::get('/tutors', 'UserController@getTutors');
+// Route::get('/tutors', 'UserController@getTutors');

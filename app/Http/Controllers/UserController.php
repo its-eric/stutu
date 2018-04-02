@@ -111,7 +111,7 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             // 'password' => another page
             // 'role' => cannot change
         ]);
@@ -120,7 +120,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return back();
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -131,7 +131,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = App\User::find($id);
+        $user->delete();
+
+        return view('users.show', compact('user'));
     }
 
     /**
