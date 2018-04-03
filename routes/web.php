@@ -31,7 +31,7 @@ Route::resource('users', 'UserController');
 Route::resource('courses', 'CourseController');
 Route::get('/tutor-courses', 'CourseController@listTutorCourses')->name('listTutorCourses');
 
-Route::post('/filter', 'FilterController@filterAll')->name('filter');
+Route::any('/filter', 'FilterController@filterAll')->name('filter');
 // Route::post('/filter/user', 'FilterController@filterUser');
 
 // Route::get('/tutors', 'UserController@getTutors');

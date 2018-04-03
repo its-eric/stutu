@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource (all users).
@@ -31,11 +31,11 @@ class UserController extends Controller
 
         if ( $currentUser->role == 'admin' )
         {
-            $users = User::paginate(25); //paginate
+            $users = User::where('id', '!=', Auth::user()->id)->paginate(25); //paginate
             return view('users.index', compact('users'));
         }
 
-        return 'Cannot access. You are not admin';
+        abort(404);
     }
 
     /**
@@ -66,19 +66,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // // get current user
-        // $user = Auth::user();
-
-        // // check show/{id} on url is the same id with current user.
-        // if ( $id == $user->id )
-        // {
-        //     return view('users.show', compact('user'));
-        // }
-
-        // return 'Page does not exist';
-
         $user = User::find($id);
-        return view('users.show', compact('user'));
+
+        if ( Auth::user()->role == 'admin' || $id == Auth::user()->id )
+        {
+            return view('users.show', compact('user'));
+        }
+
+        abort(404);
     }
 
     /**
@@ -90,15 +85,15 @@ class UserController extends Controller
     public function edit($id)
     {
         // get current user
-        $user = Auth::user();
+        $user = User::find($id);
 
         // check show/{id} on url is the same id with current user.
-        if ( $id == $user->id )
+        if ( Auth::user()->role == 'admin' || $id == Auth::user()->id )
         {
             return view('users.edit', compact('user'));
         }
 
-        return 'Page does not exist';
+        abort(404);
     }
 
     /**

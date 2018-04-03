@@ -82,6 +82,21 @@
                     Stutu
                 </div>
 
+                <!-- Form filter -->
+                <div class="card-body">
+                    Filter
+                    <form method="POST" action="/filter">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <input name="filterStr" class="form-control" required></input>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+
                 <div>
                     <div class="card-body">
                         <h1>Tutor</h1>

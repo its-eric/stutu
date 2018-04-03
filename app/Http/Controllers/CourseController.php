@@ -10,6 +10,17 @@ use Auth;
 class CourseController extends Controller
 {
     /**
+     * Create a new controller instance.
+     * To check authentication.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -23,7 +34,7 @@ class CourseController extends Controller
 
     public function listTutorCourses(Request $request)
     {
-        if (!(Auth::user()->role == 'tutor')) {
+        if (!(Auth::user()->role == 'admin' || Auth::user()->role == 'tutor')) {
             abort(404);
         }
 
@@ -95,11 +106,11 @@ class CourseController extends Controller
         $user = Auth::user();
         $course = Course::find($id);
 
-        if ($course->user_id == $user->id) {
+        if ($user->role == 'admin' || $course->user_id == $user->id) {
             return view('courses.edit', compact('course'));
         }
 
-        return "Page not found";
+        abort(404);
     }
 
     /**
@@ -129,7 +140,10 @@ class CourseController extends Controller
         $course = Course::find($id);
         $course->delete();
 
-        // return Redirect::route('courses.index');
+        if (Auth::user()->role == 'admin') {
+            return redirect()->action('UserController@index');
+        }
+
         return redirect()->action('CourseController@listTutorCourses');
     }
 }

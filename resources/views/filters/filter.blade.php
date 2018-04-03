@@ -41,7 +41,7 @@
                         @else
                             @foreach ($data['users'] as $user)
                                 <div>
-                                    <a href="{{ url('users/'.$user->id) }}">{{ $user->name }}</a>
+                                    <a href="{{ url('tutors/'.$user->id.'/detail') }}">{{ $user->name }}</a>
 
                                     {{ $user->email }}
                                 </div>
@@ -54,7 +54,7 @@
                         @else
                             @foreach ($data['courses'] as $course)
                                 <div>
-                                    {{ $course->name }}
+                                    <a href="{{ url('courses/'.$course->id.'/detail') }}">{{ $course->name }}</a>
                                     {{ $course->description }}
                                 </div>
                             @endforeach

@@ -37,9 +37,19 @@
                 <div class="card-body">
                     <a href="{{ url('users/'.$user->id) }}">Profile</a>
                     <br>
+
                     <a href="{{ url('courses') }}" value="all-courses">All Courses</a>
                     <br>
-                    <a href="{{ url('tutor-courses') }}" value="all-courses">Your Courses</a>
+
+                    @if ($user->role == 'tutor')
+                        <a href="{{ url('tutor-courses') }}" value="all-courses">Your Courses</a>
+                    @endif
+                    <br>
+
+                    @if ($user->role == 'admin')
+                        <a href="{{ url('users') }}">All Users</a>
+                    @endif
+                    <br>
 
                 </div>
             </div>
