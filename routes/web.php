@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route for guest
+Route::get('/', 'GuestController@welcome')->name('welcome');
+Route::get('/all-tutors', 'GuestController@allTutors');
+Route::get('/tutors/{id}/detail', 'GuestController@tutorDetail');
+Route::get('/all-courses', 'GuestController@allCourses');
+Route::get('/courses/{id}/detail', 'GuestController@courseDetail');
+Route::get('/about', 'GuestController@about');
 
-Route::get('/about', function () {
-    return view('welcome');
-});
+// End route for guest
+
+
 
 Auth::routes();
 

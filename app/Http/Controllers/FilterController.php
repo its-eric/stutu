@@ -22,7 +22,7 @@ class FilterController extends Controller
 
         $data = [
             'users'  => $users,
-            'courses'   => $courses
+            'courses'   => $courses,
         ];
 
         // Convert array to json

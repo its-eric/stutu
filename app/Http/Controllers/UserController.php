@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Display a listing of the resource (all users).
@@ -66,16 +66,19 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // get current user
-        $user = Auth::user();
+        // // get current user
+        // $user = Auth::user();
 
-        // check show/{id} on url is the same id with current user.
-        if ( $id == $user->id )
-        {
-            return view('users.show', compact('user'));
-        }
+        // // check show/{id} on url is the same id with current user.
+        // if ( $id == $user->id )
+        // {
+        //     return view('users.show', compact('user'));
+        // }
 
-        return 'Page does not exist';
+        // return 'Page does not exist';
+
+        $user = User::find($id);
+        return view('users.show', compact('user'));
     }
 
     /**

@@ -79,15 +79,44 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Stutu
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div>
+                    <div class="card-body">
+                        <h1>Tutor</h1>
+                        @foreach ($users as $user)
+                            <div>
+                                <label>Name: <a href="{{ url('tutors/'.$user->id).'/detail' }}">{{ $user->name }}</a></label>
+                                <label>Email: {{ $user->email }}</label>
+                                <label>Role: {{ $user->role }}</label>
+                            </div>
+
+                        @endforeach
+                        <a href="{{ url('all-tutors') }}">View all tutors</a>
+
+                       <!--  {{ $users->links() }}
+                        {{ $users->total() }} -->
+
+                        <br>
+                    </div>
+
+                    <div class="card-body">
+                        <h1>List of Courses</h1>
+                        @foreach ($courses as $course)
+                            <div>
+                                {{ $course->id }}
+                                <a href="{{ url('courses/'.$course->id.'/detail') }}">{{ $course->name }}</a>
+                                {{ $course->description }}
+                                {{ $course->discount }}
+                            </div>
+                        @endforeach
+                        <a href="{{ url('all-courses') }}">View all courses</a>
+
+                      <!--   {{ $courses->links() }}
+                        {{ $courses->total() }} -->
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
