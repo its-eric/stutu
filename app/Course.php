@@ -25,4 +25,12 @@ class Course extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get all of the tags for the course.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
+    }
 }

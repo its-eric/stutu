@@ -35,7 +35,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Course');
     }
 
-    public function addCourse(Course $course){
+    public function addCourse(Course $course)
+    {
         return $this->courses()->save($course);
+    }
+
+    /**
+     * Get all of the tags for the user.
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
     }
 }
