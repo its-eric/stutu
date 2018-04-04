@@ -14,4 +14,6 @@
     <a href="{{ url('home') }}">DASHBOARD</a>
     <br>
     <a href="{{ url('users/'.$user->id.'/edit') }}">Edit profile</a>
+    <br>
+    <a href="{{ url('users/'.$user->id.'/change-password') }}">Change password</a>
 </div>

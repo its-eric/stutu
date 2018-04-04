@@ -21,13 +21,15 @@ Route::get('/about', 'GuestController@about');
 
 // End route for guest
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
+
+Route::get('users/{id}/change-password', 'Auth\ChangePasswordController@edit');
+Route::post('users/{id}/change-password', 'Auth\ChangePasswordController@update');
+
 Route::resource('courses', 'CourseController');
 Route::get('/tutor-courses', 'CourseController@listTutorCourses')->name('listTutorCourses');
 
