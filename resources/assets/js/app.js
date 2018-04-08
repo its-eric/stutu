@@ -6,9 +6,13 @@
  */
 
 import devtools from '@vue/devtools';
-require('./bootstrap');
+import Vue from 'vue';
+import VueMaterial from 'vue-material';
+import VueRouter from 'vue-router';
+import 'vue-material/dist/vue-material.min.css';
+import 'vue-material/dist/theme/default-dark.css';
 
-window.Vue = require('vue');
+window.Vue = Vue;
 
 if (process.env.NODE_ENV === 'development') {
     devtools.connect();
@@ -20,8 +24,34 @@ if (process.env.NODE_ENV === 'development') {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import appComponent      from './components/AppComponent.vue';
+import loginComponent    from './components/RegisterComponent.vue';
+import registerComponent from './components/LoginComponent.vue';
+Vue.use(VueMaterial);
+Vue.use(VueRouter);
+
+const routes = [
+    { path: '/', name: 'app', component: appComponent },
+    { path: '/login', name: 'login', component: loginComponent },
+    { path: '/register', name: 'register', component: registerComponent },
+    //{ path: '/home', component: dashboardComponent }
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+});
 
 const app = new Vue({
-    el: '#app'
+    el: '#stutu-app',
+
+    router,
+
+    components: {
+        appComponent
+    },
+
+    data: () => ({
+        menuVisible: false
+    })
 });
