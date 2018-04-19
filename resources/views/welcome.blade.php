@@ -100,36 +100,15 @@
                 <div>
                     <div class="card-body">
                         <h1>Tutor</h1>
-                        @foreach ($users as $user)
-                            <div>
-                                <label>Name: <a href="{{ url('tutors/'.$user->id).'/detail' }}">{{ $user->name }}</a></label>
-                                <label>Email: {{ $user->email }}</label>
-                                <label>Role: {{ $user->role }}</label>
-                            </div>
+                        {{ $users }}
 
-                        @endforeach
-                        <a href="{{ url('all-tutors') }}">View all tutors</a>
-
-                       <!--  {{ $users->links() }}
-                        {{ $users->total() }} -->
 
                         <br>
                     </div>
 
                     <div class="card-body">
                         <h1>List of Courses</h1>
-                        @foreach ($courses as $course)
-                            <div>
-                                {{ $course->id }}
-                                <a href="{{ url('courses/'.$course->id.'/detail') }}">{{ $course->name }}</a>
-                                {{ $course->description }}
-                                {{ $course->discount }}
-                            </div>
-                        @endforeach
-                        <a href="{{ url('all-courses') }}">View all courses</a>
 
-                      <!--   {{ $courses->links() }}
-                        {{ $courses->total() }} -->
                         <br>
                     </div>
                 </div>

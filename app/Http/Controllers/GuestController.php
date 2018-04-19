@@ -10,10 +10,13 @@ class GuestController extends Controller
 {
     public function welcome()
     {
-        $users = User::where('role', 'tutor')->paginate(5);
+        // $users = User::where('role', 'tutor')->paginate(5);
+        $users = User::where('role', 'tutor')->get();
+        // dd($users->toJson());
+
         $courses = Course::paginate(5);
 
-        return view('welcome')->with([
+        return response()->json([
             'users' => $users,
             'courses' => $courses,
         ]);
