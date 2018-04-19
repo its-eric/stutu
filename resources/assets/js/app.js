@@ -6,41 +6,31 @@
  */
 
 import devtools from '@vue/devtools';
-import Vue from 'vue';
-import VueMaterial from 'vue-material';
-import VueRouter from 'vue-router';
-import 'vue-material/dist/vue-material.min.css';
-import 'vue-material/dist/theme/default-dark.css';
+import Vue from 'vue'
+import VueMaterial from 'vue-material'
+import VueRouter from 'vue-router'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default-dark.css'
+import axios from 'axios'
 
-window.Vue = Vue;
+import Auth from './auth.js'
+import Api from './api.js'
+
+window.Vue = Vue
+window.auth = new Auth()
+window.api = new Api()
 
 if (process.env.NODE_ENV === 'development') {
-    devtools.connect();
+    devtools.connect()
 }
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(VueMaterial)
+Vue.use(VueRouter)
+Vue.use(axios)
 
-import appComponent      from './components/AppComponent.vue';
-import loginComponent    from './components/RegisterComponent.vue';
-import registerComponent from './components/LoginComponent.vue';
-Vue.use(VueMaterial);
-Vue.use(VueRouter);
-
-const routes = [
-    { path: '/', name: 'app', component: appComponent },
-    { path: '/login', name: 'login', component: loginComponent },
-    { path: '/register', name: 'register', component: registerComponent },
-    //{ path: '/home', component: dashboardComponent }
-];
-
-const router = new VueRouter({
-    mode: 'history',
-    routes // short for `routes: routes`
-});
+import appComponent from './components/AppComponent.vue'
+import loginComponent from './components/LoginComponent.vue'
+import router from './routes.js'
 
 const app = new Vue({
     el: '#stutu-app',
@@ -48,9 +38,10 @@ const app = new Vue({
     router,
 
     components: {
-        appComponent
+        appComponent,
+        loginComponent
     },
-
+    
     data: () => ({
         menuVisible: false
     })

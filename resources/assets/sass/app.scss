@@ -18,14 +18,16 @@
 
 .md-app {
   border: 1px solid rgba(#000, .12);
+  height: 100%;
+  display: inline-flex;
 }
 .md-drawer {
   width: 25%;
 }
 .md-content {
-  display: inline-flex;
   justify-content: center;
   align-items: center;
+  display: inline-flex;
 }
 .md-card {
   width: 40vw;

@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/{any}', 'HomeController@index')->where('any', '.*');
+Route::group(['middleware' => 'web'], function () {
+    Route::any('/{vue_capture?}', 'HomeController@index')->where('vue_capture', '^(?!storage|api).*$'); 
+});

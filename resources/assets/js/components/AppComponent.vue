@@ -4,7 +4,7 @@
         <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
             <md-icon>menu</md-icon>
         </md-button>
-        <span class="md-title"><router-link :to="{ name: 'app' }"></router-link></span>
+        <span class="md-title"><router-link :to="{ name: 'dashboard' }"></router-link></span>
     </md-app-toolbar>
 
     <md-app-drawer :md-active.sync="menuVisible">
@@ -13,29 +13,29 @@
         </md-toolbar>
 
         <md-list>
-        @guest
         <md-list-item>
+            <md-icon>home</md-icon> 
             <span class="md-list-item-text">
-                <router-link to="login">{{ __('Login') }}</router-link>    
+                <div v-if="authenticated && user">
+                  <p>Hello, {{ user.name }}</p>
+                  <router-link :to="{ name: 'logout' }">Logout</router-link>
+                </div>
+                <router-link :to="{ name: 'login' }" v-else>Login</router-link>    
             </span>
         </md-list-item>
         <md-list-item>
+            <md-icon>face</md-icon>
             <span class="md-list-item-text">
-                <router-link to="register">{{ __('Register') }}</router-link>
+                <router-link :to="{ name: 'register' }">Register</router-link>
             </span>
         </md-list-item>
-        @else
         <md-list-item>
             <md-icon>exit_to_app</md-icon>
             <span class="md-list-item-text">
-                <router-link to="logout">{{ __('Logout') }}</router-link>
+                <router-link :to="{ name: 'logout' }">Logout</router-link>
             </span>
         </md-list-item>
 
-        <form id="logout-form" method="POST" style="display: none;">
-            @csrf
-        </form>
-        @endguest
         </md-list>
     </md-app-drawer>
 
@@ -45,5 +45,21 @@
 </md-app>
 </template>
 <script>
-    export default {}
+    export default {
+      data() {
+        return {
+          authenticated: auth.check(),
+          user: auth.user,
+          menuVisible: false,     
+        }
+      },
+
+      mounted() {
+        this.$on('userLoggedIn', () => {
+            this.authenticated = true;
+            this.user = auth.user;
+        });
+      },
+
+    }
 </script>
