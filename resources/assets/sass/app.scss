@@ -1,43 +1,8 @@
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~sweetalert2/src/sweetalert2';
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-// Variables
-@import "variables";
-
-@import "~vue-material/dist/theme/engine"; // Import the theme engine
-
-@include md-register-theme("default", (
-  primary: md-get-palette-color(green, A200), // The primary color of your application
-  accent: md-get-palette-color(pink, 500), // The accent or secondary color
-  theme: dark // This can be dark or light
-));
-
-@import "~vue-material/dist/theme/all"; // Apply the theme
-
-.md-app {
-  border: 1px solid rgba(#000, .12);
-  height: 100%;
-  display: inline-flex;
-}
-.md-drawer {
-  width: 25%;
-}
-.md-content {
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-}
-.md-card {
-  width: 40vw;
-  margin: 4px;
-  display: inline-block;
-  vertical-align: top;
-}
-.md-progress-bar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-}
+@import 'elements/card';
+@import 'elements/navbar';
+@import 'elements/buttons';
+@import 'elements/transitions';

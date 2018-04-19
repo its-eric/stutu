@@ -14,7 +14,7 @@ class AddBasicFieldsToUserTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['admin', 'student', 'tutor']);
+            $table->enum('role', ['admin', 'student', 'tutor'])->default('student');
             $table->date('birthday')->nullable();
             $table->enum('gender', ['male', 'female', 'not informed'])->nullable();
             $table->binary('profile_picture')->nullable();
