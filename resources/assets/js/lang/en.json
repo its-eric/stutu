@@ -31,5 +31,12 @@
   "new_password": "New Password",
   "login_with": "Login with",
   "register_with": "Register with",
-  "role": "Role"
+  "role": "Role",
+  "save_draft": "Save draft",
+  "reset_form": "Reset form",
+  "publish": "Publish",
+  "chat": "Chat",
+  "dashboard": "Dashboard",
+  "inbox": "Inbox",
+  "courses": "Courses" 
 }

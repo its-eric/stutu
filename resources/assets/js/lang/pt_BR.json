@@ -31,6 +31,13 @@
     "new_password": "Nova Senha",
     "login_with": "Login com",
     "register_with": "Cadastrar com",
-    "role": "Papel"
+    "role": "Papel",
+    "save_draft": "Salvar rascunho",
+    "reset_form": "Limpar formulário",
+    "publish": "Publicar",
+    "chat": "Chat",
+    "dashboard": "Painel",
+    "inbox": "Caixa de entrada",
+    "courses": "Cursos"
   }
   

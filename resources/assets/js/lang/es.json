@@ -31,5 +31,12 @@
   "new_password": "Nueva Contraseña",
   "login_with": "Iniciar Sesión con",
   "register_with": "Registro con",
-  "role": "Papel"
+  "role": "Papel",
+  "save_draft": "Salvar borrador",
+  "reset_form": "Limpiar formulario",
+  "publish": "Publicar",
+  "chat": "Chat",
+  "dashboard": "Painel",
+  "inbox": "Caja de entrada",
+  "courses": "Cursos"
 }

@@ -15,9 +15,64 @@
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li> -->
+          <li class="nav-item">
+            <router-link :to="{ name: 'home' }" class="nav-link">
+              <i class="icon_house_alt"></i>
+              <span>{{ $t('dashboard') }}</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'inbox' }" class="nav-link">
+              <i class="glyphicon glyphicon-envelope"></i>
+              <span>{{ $t('inbox') }}</span>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'chat' }" class="nav-link">
+              <i class="fa fa-comments"></i>
+              <span>{{ $t('chat') }}</span>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link :to="{ name: 'courses' }" class="nav-link">
+              <i class="icon_table"></i>
+              <span>{{ $t('courses') }}</span>
+              <span class="menu-arrow arrow_carrot-right"></span>
+            </router-link>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
+          <!-- inbox notification start-->
+          <li id="mail_notificatoin_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="icon-envelope-l"></i>
+              <span class="badge bg-important">1</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+              <div class="notify-arrow notify-arrow-blue"></div>
+              <li>
+                <p class="blue">You have a new message</p>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="photo"><img alt="avatar" :src="user.photo_url"></span>
+                  <span class="subject"></span>
+                    <span class="from">Greg  Martin</span>
+                    <span class="time">1 min</span>
+                    <span class="message">
+                      I really like this admin panel.
+                    </span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">See all messages</a>
+              </li>
+            </ul>
+          </li>
+
           <!-- Authenticated -->
           <li v-if="user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"

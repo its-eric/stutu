@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
 import store from '~/store'
 import Meta from 'vue-meta'
 import routes from './routes'
@@ -7,6 +8,7 @@ import { sync } from 'vuex-router-sync'
 
 Vue.use(Meta)
 Vue.use(Router)
+Vue.use(BootstrapVue)
 
 // The middleware for every page of the application.
 const globalMiddleware = ['locale', 'check-auth']
