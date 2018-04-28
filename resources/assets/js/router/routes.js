@@ -7,7 +7,6 @@ const NotFound = () => import('~/pages/errors/404').then(m => m.default || m)
 
 const Home = () => import('~/pages/home').then(m => m.default || m)
 const Inbox = () => import('~/pages/inbox').then(m => m.default || m)
-const Chat = () => import('~/pages/chat').then(m => m.default || m)
 const Courses = () => import('~/pages/courses').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
@@ -23,7 +22,6 @@ export default [
 
   { path: '/home', name: 'home', component: Home },
   { path: '/inbox', name: 'inbox', component: Inbox },
-  { path: '/chat', name: 'chat', component: Chat },
   { path: '/courses', name: 'courses', component: Courses },
   { path: '/settings',
     component: Settings,

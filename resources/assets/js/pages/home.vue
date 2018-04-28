@@ -270,12 +270,8 @@
         </section>
         
       </section>
-      <!--main content end-->
-      </section>
 
-      <b-container>
-        Test
-      </b-container>
+    </section>
   </card>
   
 </template>
@@ -329,6 +325,6 @@ export default {
 
   metaInfo () {
     return { title: this.$t('home') }
-  }
+  },
 }
 </script>

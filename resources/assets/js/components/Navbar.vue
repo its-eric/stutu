@@ -28,13 +28,6 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'chat' }" class="nav-link">
-              <i class="fa fa-comments"></i>
-              <span>{{ $t('chat') }}</span>
-            </router-link>
-          </li>
-
-          <li class="nav-item">
             <router-link :to="{ name: 'courses' }" class="nav-link">
               <i class="icon_table"></i>
               <span>{{ $t('courses') }}</span>
