@@ -1,20 +1,20 @@
 {
     "ok": "Ok",
-    "cancel": "Cancel",
+    "cancel": "Megsé",
     "error_alert_title": "Oops...",
     "error_alert_text": "Van valami hiba a rendszerrel! Probáljon újra kesőbb.",
     "token_expired_alert_title": "Session Expired!",
     "token_expired_alert_text": "Kérjük, jelentkezzen be ismét a rendszer használatához!",
     "login": "Bejelentkezés",
     "register": "Registrácio",
-    "page_not_found": "Page Not Found",
+    "page_not_found": "Ez az oldal nem található",
     "go_home": "Ugrás HOME",
     "logout": "Kilépes",
     "email": "Email",
     "remember_me": "Remember Me",
     "password": "Jelszó",
-    "forgot_password": "Forgot Your Password?",
-    "confirm_password": "Confirm Password",
+    "forgot_password": "Elfelejtettel a jelszavadat?",
+    "confirm_password": "Megerősitse a jelszavadat",
     "name": "Név",
     "toggle_navigation": "Toggle navigation",
     "home": "Home",
@@ -26,7 +26,7 @@
     "your_info": "Infoid",
     "info_updated": "Your info has been updated!",
     "update": "Frissítés",
-    "your_password": "Your Password",
+    "your_password": "Jelszód",
     "password_updated": "Your password has been updated!",
     "new_password": "New Password",
     "login_with": "Belépes ezzel",
@@ -38,6 +38,6 @@
     "chat": "Chat",
     "dashboard": "Dashboard",
     "inbox": "Beérkezett üzenetek",
-    "courses": "Tánfolyamok" 
+    "courses": "Tánfolyamok"
   }
   
