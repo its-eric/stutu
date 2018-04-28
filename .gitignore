@@ -23,3 +23,5 @@ storage/*.key
 /public/css
 /public/mix-manifest.json
 phpunit.dusk.xml
+public/css/app.css
+public/js/app.js
