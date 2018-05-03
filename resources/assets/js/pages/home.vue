@@ -12,7 +12,7 @@
               <!-- Widget -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <div class="pull-left">Message</div>
+                  <div class="pull-left">{{ $t('message') }}</div>
                   <div class="widget-icons pull-right">
                     <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                     <a href="#" class="wclose"><i class="fa fa-times"></i></a>
