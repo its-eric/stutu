@@ -32,7 +32,8 @@ class UserController extends Controller
         if ( $currentUser->role == 'admin' )
         {
             $users = User::paginate(25); //paginate
-            return view('users.index', compact('users'));
+            // return view('users.index', compact('users'));
+            return response()->json('users', $users);
         }
 
         return 'Cannot access. You are not admin';
@@ -72,7 +73,8 @@ class UserController extends Controller
         // check show/{id} on url is the same id with current user.
         if ( $id == $user->id )
         {
-            return view('users.show', compact('user'));
+            // return view('users.show', compact('user'));
+            return response()->json('user', $user);
         }
 
         return 'Page does not exist';
@@ -92,7 +94,8 @@ class UserController extends Controller
         // check show/{id} on url is the same id with current user.
         if ( $id == $user->id )
         {
-            return view('users.edit', compact('user'));
+            // return view('users.edit', compact('user'));
+            return response()->json('user', $user);
         }
 
         return 'Page does not exist';
@@ -120,7 +123,8 @@ class UserController extends Controller
 
         $user->save();
 
-        return view('users.show', compact('user'));
+        // return view('users.show', compact('user'));
+        return response()->json('user', $user);
     }
 
     /**
