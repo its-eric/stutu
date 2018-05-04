@@ -42,11 +42,11 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label text-md-right">{{ $t('role') }}</label>
             <div class="col-md-7">
-              <div class="form-check form-check-inline">
+              <div class="form-check form-inline">
                 <input type="radio" id="role" value="student" name="role" v-model="form.role" required class="form-control form-check-input" />
                 <label class="form-check-label">Student</label>
               </div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-inline">
                 <input type="radio" id="role" value="tutor" name="role" v-model="form.role" required class="form-control form-check-input">
                 <label class="form-check-label">Tutor</label>
               </div>
