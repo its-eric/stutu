@@ -2,7 +2,7 @@
     <card :title="$t('your_info')">
         <div class="container">
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
+                <li class="active"><a data-toggle="pill" href="#profile">Profile </a></li>
                 <li><a data-toggle="pill" href="#editProfile">Edit Profile</a></li>
             </ul>
 

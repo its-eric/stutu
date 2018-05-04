@@ -37,7 +37,7 @@
         </ul>
 
         <!-- Authenticated -->
-        <li v-if="user" class="nav-item dropdown">
+        <li v-if="user" class="navbar-nav nav-item dropdown">
           <a class="nav-link dropdown-toggle"
               href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
@@ -58,12 +58,10 @@
         </li>
         <!-- Guest -->
         <template v-else>
-          <li class="nav-item">
+          <li class="navbar-nav nav-item">
             <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
               {{ $t('login') }}
             </router-link>
-          </li>
-          <li class="nav-item">
             <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
               {{ $t('register') }}
             </router-link>

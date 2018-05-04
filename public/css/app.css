@@ -12210,6 +12210,12 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   font-size: 1.4rem;
 }
 
+#navbarToggler {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .btn-loading {
   position: relative;
   pointer-events: none;
