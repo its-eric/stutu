@@ -1,65 +1,58 @@
 <template>
     <card :title="$t('your_info')">
         <div class="container">
-            <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#profile">Profile </a></li>
-                <li><a data-toggle="pill" href="#editProfile">Edit Profile</a></li>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active nav-item"><a class="nav-link active show" data-toggle="tab" href="#profile" role="tab">Profile </a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#editProfile" role="tab">Edit Profile</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="profile" class="tab-pane in active">
                     <div class="panel-body">
-                        <div class="col-lg-12 col-sm-12">
-                            <h4>{{ user.name }}</h4>
-                            <div class="follow-ava">
-                                <img src="img/butters.gif" alt="">
-                            </div>
-                            <h6>{{ user.role }}</h6>
-                        </div>
                         <div class="col-lg-12 col-sm-12 follow-info">
                             <p>Hello I’m {{ user.name }}, a leading expert in interactive and creative design.</p>
                             <p>{{ user.name }}</p>
                             <p><i class="fa fa-twitter">{{ user.name }}</i></p>
-                            <h6>
-                                <span><i class="icon_clock_alt"></i>11:00 PM</span>
-                                <span><i class="icon_calendar"></i>16.04.18</span>
-                                <span><i class="icon_pin_alt"></i>HU</span>
-                            </h6>
+
                         </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <h4>Bio Graph</h4>
+                            <div class="follow-ava">
+                                <img src="img/avatar1.jpg" alt="">
+                            </div>
+                            <h6>{{ user.role }}</h6>
+
+                            <div class="bio-row">
+                                <p><span>Name: </span>{{ user.name }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Role: </span>{{ user.role }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Email: </span>{{ user.email }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Birthday: </span>{{ user.birthday }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Gender: </span>{{ user.gender }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Experience: </span>{{ user.experience }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Url: </span>{{ user.url }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Expectation: </span>{{ user.expectation }}</p>
+                            </div>
+                        </div>
+
                         <!-- profile -->
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
                                 <div class="bio-graph-heading">
                                 Hello I’m Bazouzou, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from ELTE University with a Master of Design majoring in visual communication.
-                                </div>
-                                <div class="panel-body bio-graph-info">
-                                    <h1>Bio Graph</h1>
-                                    <div class="row">
-                                        <div class="bio-row">
-                                            <p><span>First Name: </span>Bazouzou </p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Last Name: </span>Kranjcec</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Birthday: </span>1 January 1990</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Country: </span>Hungary</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Occupation: </span>UI Designer</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Email: </span>bazouzou@mailname.com</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Mobile: </span>(+6283) 456 789</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Phone: </span>(+021) 956 789123</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </section>
                             <section>
@@ -92,6 +85,25 @@
                                 </div>
                             </div>
 
+                            <!-- Birthday -->
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label text-md-right">{{ $t('birthday') }}</label>
+                                <div class="col-md-7">
+                                    <input v-model="form.birthday" :class="{ 'is-invalid': form.errors.has('birthday') }" class="form-control" type="date" max="2000-01-01" name="birthday">
+                                    <has-error :form="form" field="birthday" />
+                                </div>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="form-group row profile-gender">
+                                <label class="col-md-3 col-form-label text-md-right">{{ $t('gender') }}</label>
+                                <div class="col-md-7">
+                                    <label class="radio-inline"><input v-model="form.gender" type="radio" name="gender" value="male">Male</label>
+                                    <label class="radio-inline"><input v-model="form.gender" type="radio" name="gender" value="female">Female</label>
+                                    <has-error :form="form" field="gender" />
+                                </div>
+                            </div>
+
                             <!-- Experience -->
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label text-md-right">{{ $t('experience') }}</label>
@@ -101,7 +113,7 @@
                                 </div>
                             </div>
 
-                            <!-- url -->
+                            <!-- Url -->
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label text-md-right">{{ $t('url') }}</label>
                                 <div class="col-md-7">
@@ -110,7 +122,7 @@
                                 </div>
                             </div>
 
-                            <!-- expectation -->
+                            <!-- Expectation -->
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label text-md-right">{{ $t('expectation') }}</label>
                                 <div class="col-md-7">
@@ -148,6 +160,8 @@ export default {
     form: new Form({
       name: '',
       email: '',
+      birthday: '',
+      gender: '',
       experience: '',
       url: '',
       expectation: ''

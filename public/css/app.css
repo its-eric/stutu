@@ -12284,3 +12284,13 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
   opacity: 0;
 }
 
+#editProfile,
+#profile {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.profile-gender label {
+  padding-top: 7px;
+}
+
