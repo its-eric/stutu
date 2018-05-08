@@ -18,7 +18,8 @@ class CourseController extends Controller
     {
         // $currentUser = Auth::user(); // another way to get current user
         $courses = Course::paginate(10);
-        return view('courses.index', compact('courses'));
+        // return view('courses.index', compact('courses'));
+        return response()->json('courses', $courses);
     }
 
     public function listTutorCourses(Request $request)
@@ -28,8 +29,12 @@ class CourseController extends Controller
         }
 
         $courses = Course::where('user_id', Auth::user()->id)->paginate(10);
-        return view('courses.index')->with([
-            'courses' => $courses,
+        // return view('courses.index')->with([
+        //     'courses' => $courses,
+        //     'yourCourses' => true,
+        // ]);
+        return response()->json([
+            'courses', $courses,
             'yourCourses' => true,
         ]);
     }
@@ -81,7 +86,8 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        return view('courses.show', compact('course'));
+        // return view('courses.show', compact('course'));
+        return response()->json('course', $course);
     }
 
     /**
@@ -96,7 +102,8 @@ class CourseController extends Controller
         $course = Course::find($id);
 
         if ($course->user_id == $user->id) {
-            return view('courses.edit', compact('course'));
+            // return view('courses.edit', compact('course'));
+            return response()->json('course', $course);
         }
 
         return "Page not found";
@@ -115,7 +122,8 @@ class CourseController extends Controller
         $course->update($request->all());
         $course->save();
 
-        return view('courses.show', compact('course'));
+        // return view('courses.show', compact('course'));
+        return response()->json('course', $course);
     }
 
     /**

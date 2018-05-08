@@ -28,6 +28,7 @@ class FilterController extends Controller
         // Convert array to json
         // $jsonData = json_encode($data);
 
-        return view('filters.filter')->with('data', $data);
+        // return view('filters.filter')->with('data', $data);
+        return response()->json('data', $data);
     }
 }
