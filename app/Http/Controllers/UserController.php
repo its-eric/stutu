@@ -149,8 +149,7 @@ class UserController extends Controller
      */
     public function getTutors()
     {
-        $tutors = User::where('role', 'tutor')->get();
-        // dd($tutors);
-        // Return
+        $tutors = User::with('courses')->where('role', 'tutor')->get();
+        return response()->json($tutors);
     }
 }

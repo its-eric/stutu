@@ -21,9 +21,9 @@ class Course extends Model
     /**
      * Get the course that owns the user.
      */
-    public function course()
+    public function owner()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**

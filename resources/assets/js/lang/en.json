@@ -38,5 +38,11 @@
   "chat": "Chat",
   "dashboard": "Dashboard",
   "inbox": "Inbox",
-  "courses": "Courses"
+  "courses": "Courses",
+  "last_updated_at": "Last updated at",
+  "visit_the_page_of": "Visit the page of",
+  "course": "Course",
+  "a_course_by": "A course by",
+  "tutors": "Tutors",
+  "tutor": "Tutor"
 }

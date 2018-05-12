@@ -38,5 +38,11 @@
   "chat": "Chat",
   "dashboard": "Painel",
   "inbox": "Caja de entrada",
-  "courses": "Cursos"
+  "courses": "Cursos",
+  "last_updated_at": "Actualizado por última vez",
+  "visit_the_page_of": "Visita lo sítio de",
+  "course": "Curso",
+  "a_course_by": "Un curso presentado por",
+  "tutors": "Tutores",
+  "tutor": "Tutor"
 }
