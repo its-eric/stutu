@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DefineCourseOwner extends Migration
+class AssignCourseOwner extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DefineCourseOwner extends Migration
      */
     public function up()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            //
+        Schema::table('course_user', function (Blueprint $table) {
+            $table->boolean('is_owner')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class DefineCourseOwner extends Migration
      */
     public function down()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            //
+        Schema::table('course_user', function (Blueprint $table) {
+            $table->dropColumn('is_owner');
         });
     }
 }

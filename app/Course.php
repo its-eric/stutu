@@ -19,7 +19,7 @@ class Course extends Model
     ];
 
     /**
-     * Get the course that owns the user.
+     * Get the user that owns the course.
      */
     public function owner()
     {

@@ -144,7 +144,6 @@ class UserController extends Controller
     /**
      * List tutor only.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function getTutors()
