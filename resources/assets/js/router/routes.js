@@ -9,6 +9,8 @@ const Home = () => import('~/pages/home').then(m => m.default || m)
 const Inbox = () => import('~/pages/inbox').then(m => m.default || m)
 const Courses = () => import('~/pages/courses').then(m => m.default || m)
 const Course = () => import('~/pages/course').then(m => m.default || m)
+const Tutors = () => import('~/pages/tutors').then(m => m.default || m)
+const Tutor = () => import('~/pages/tutor').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
@@ -25,6 +27,8 @@ export default [
   { path: '/inbox', name: 'inbox', component: Inbox },
   { path: '/courses', name: 'courses', component: Courses },
   { path: '/courses/:id', name: 'course', component: Course },
+  { path: '/tutors', name: 'tutors', component: Tutors },
+  { path: '/tutors/:id', name: 'tutor', component: Tutor },
   { path: '/settings',
     component: Settings,
     children: [

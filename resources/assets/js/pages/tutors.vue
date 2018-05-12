@@ -5,7 +5,7 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{ tutor.name }}</h5>
         </div>
-        <p class="mb-1">{{ course.description }}</p>
+        <p class="mb-1">Some of my famous courses:</p>
       </b-list-group-item>
     </b-list-group>
   </card>
@@ -31,7 +31,7 @@ export default {
   mounted () {
     axios
       .get('api/tutors')
-      .then(response => (this.tutors = response.data.data))
+      .then(response => (this.tutors = response.data))
   },
 
   methods: {
@@ -41,7 +41,7 @@ export default {
   },
 
   metaInfo () {
-    return { title: this.$t('courses') }
+    return { title: this.$t('tutors') }
   },
 }
 </script>
