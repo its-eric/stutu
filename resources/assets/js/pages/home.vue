@@ -98,8 +98,9 @@
                     <div class="col-lg-4">
                       <span class="profile-ava pull-right">
                         <img alt="" class="simple" :src="user.photo_url">
-                            John Doe
+                            {{ user.name }}
                       </span>
+                      {{ posts }}
                     </div>
                   </div>
                 </div>
@@ -112,7 +113,7 @@
                       </td>
                       <td>
                         <span class="badge bg-important">In-Progress</span>
-                      </td>     
+                      </td>
                     </tr>
                     <tr>
                       <td>Yesterday</td>
@@ -228,7 +229,7 @@
                         <b-form-input id="post-title" v-model.trim="newPostForm.title"></b-form-input>
                       </b-form-group>
                     </div>
-                    
+
                     <div>
                       <b-form-group
                         id="quickpost_fieldset2"
@@ -236,7 +237,7 @@
                         label-for="post-content"
                         :class="{ 'is-invalid': newPostForm.errors.has('content') }"
                       >
-                        <b-form-textarea 
+                        <b-form-textarea
                           id="post-content"
                           v-model="newPostForm.content"
                           :rows="5"
@@ -245,11 +246,11 @@
                         <pre class="mt-3">{{ newPostForm.content }}</pre>
                       </b-form-group>
                     </div>
-                    
+
                     <div>
-                      <b-form-select v-model="newPostForm.category" :options="postCategories" class="mb-3" />
+                      <b-form-select v-model="newPostForm.status" :options="postStatuses" class="mb-3" />
                     </div>
-                    
+
                     <button class="btn btn-primary ml-auto" type="submit" @click="publishPost">
                       {{ $t('publish') }}
                     </button>
@@ -268,12 +269,12 @@
           <!-- project team & activity end -->
 
         </section>
-        
+
       </section>
 
     </section>
   </card>
-  
+
 </template>
 
 <script>
@@ -284,7 +285,7 @@ export default {
   middleware: 'auth',
 
   computed: mapGetters({
-    user: 'auth/user'
+    user: 'auth/user',
   }),
 
   data: () => ({
@@ -292,13 +293,11 @@ export default {
     newPostForm: new Form({
       title: '',
       content: '',
-      category: null,
+      status: null,
     }),
-    postCategories: [
-      'General',
-      'News',
-      'Media',
-      'Funny',
+    postStatuses: [
+      'Todo',
+      'Done',
     ]
   }),
 
@@ -312,7 +311,7 @@ export default {
     },
 
     async publishPost () {
-      const { data } = await this.newPostForm.post('/api/???')
+      const { data } = await this.newPostForm.post('/api/post')
 
       this.status = data.status
 

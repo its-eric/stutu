@@ -105,4 +105,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->morphToMany('App\Tag', 'taggable');
     }
+
+    /**
+     * Get the posts for the user.
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

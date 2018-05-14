@@ -9,42 +9,52 @@
             <div class="tab-content">
                 <div id="profile" class="tab-pane in active">
                     <div class="panel-body">
-                        <div class="col-lg-12 col-sm-12 follow-info">
-                            <p>Hello I’m {{ user.name }}, a leading expert in interactive and creative design.</p>
-                            <p>{{ user.name }}</p>
-                            <p><i class="fa fa-twitter">{{ user.name }}</i></p>
-
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 follow-info">
+                                <h1>{{ user.name }}</h1>
+                                <h6>{{ user.role }}</h6>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
+                            </div>
                         </div>
-                        <div class="col-lg-12 col-sm-12">
-                            <h4>Bio Graph</h4>
-                            <div class="follow-ava">
-                                <img src="img/avatar1.jpg" alt="">
-                            </div>
-                            <h6>{{ user.role }}</h6>
 
-                            <div class="bio-row">
-                                <p><span>Name: </span>{{ user.name }}</p>
+                        <div class="row user-info-wrapper">
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Email: </label>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Role: </span>{{ user.role }}</p>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.email }}</p>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Email: </span>{{ user.email }}</p>
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Birthday: </label>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Birthday: </span>{{ user.birthday }}</p>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.birthday }}</p>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Gender: </span>{{ user.gender }}</p>
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Gender: </label>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Experience: </span>{{ user.experience }}</p>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.gender }}</p>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Url: </span>{{ user.url }}</p>
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Experience: </label>
                             </div>
-                            <div class="bio-row">
-                                <p><span>Expectation: </span>{{ user.expectation }}</p>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.experience }}</p>
+                            </div>
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Url: </label>
+                            </div>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.url }}</p>
+                            </div>
+                            <div class="col-lg-2 col-sm-2">
+                                <label>Expectation: </label>
+                            </div>
+                            <div class="col-lg-10 col-sm-10">
+                                <p>{{ user.expectation }}</p>
                             </div>
                         </div>
 
@@ -52,7 +62,6 @@
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
                                 <div class="bio-graph-heading">
-                                Hello I’m Bazouzou, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from ELTE University with a Master of Design majoring in visual communication.
                                 </div>
                             </section>
                             <section>
