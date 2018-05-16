@@ -144,13 +144,11 @@ class UserController extends Controller
     /**
      * List tutor only.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function getTutors()
     {
-        $tutors = User::where('role', 'tutor')->get();
-        // dd($tutors);
-        // Return
+        $tutors = User::with('courses')->where('role', 'tutor')->get();
+        return response()->json($tutors);
     }
 }

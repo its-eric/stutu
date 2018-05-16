@@ -303,7 +303,7 @@ export default {
 
   methods: {
     async savePostDraft () {
-      const { data } = await this.newPostForm.post('/api/???')
+      const { data } = await this.newPostForm.post('/api/posts/drafts/new')
 
       this.status = data.status
 
@@ -317,6 +317,7 @@ export default {
 
       resetNewPost()
     },
+
     resetNewPost () {
       this.newPostForm.reset()
     },

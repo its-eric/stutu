@@ -17,9 +17,10 @@ class CourseController extends Controller
     public function index(Request $request)
     {
         // $currentUser = Auth::user(); // another way to get current user
-        $courses = Course::paginate(10);
+        $courses = Course::with('owner')->paginate(10);
         // return view('courses.index', compact('courses'));
-        return response()->json('courses', $courses);
+        \Log::info(print_r($courses, true));
+        return response()->json($courses);
     }
 
     public function listTutorCourses(Request $request)
@@ -85,9 +86,9 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = Course::find($id);
+        $course = Course::with('owner')->find($id);
         // return view('courses.show', compact('course'));
-        return response()->json('course', $course);
+        return response()->json($course);
     }
 
     /**

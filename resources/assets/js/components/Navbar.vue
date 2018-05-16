@@ -34,6 +34,13 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'tutors' }" class="nav-link">
+              <i class="icon_table"></i>
+              <span>{{ $t('tutors') }}</span>
+              <span class="menu-arrow arrow_carrot-right"></span>
+            </router-link>
+          </li>
         </ul>
 
         <!-- Authenticated -->
