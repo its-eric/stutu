@@ -21,7 +21,6 @@
                       <span class="profile-ava pull-right">
                         <img alt="" class="simple" :src="user.photo_url">
                       </span>
-                      {{ posts }}
                     </div>
                   </div>
                 </div>
@@ -34,28 +33,25 @@
             <div class="col-md-6 portlets">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h2><strong>Calendar</strong></h2>
-                  <div class="panel-actions">
-                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                  </div>
-
-                </div><br><br><br>
+                  <h2><strong>{{ $t('latest_posts') }}</strong></h2>
+                </div>
                 <div class="panel-body">
-                  <!-- Widget content -->
-
-                  <!-- Below line produces calendar. I am using FullCalendar plugin. -->
-                  <div id="calendar"></div>
-
+                    <b-list-group v-for="(post, key) in posts" :key="key">
+                      <b-list-group-item class="flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{ post.title }}</h5>
+                        </div>
+                        <p class="mb-1">{{ post.content }}</p>
+                      </b-list-group-item>
+                    </b-list-group>
                 </div>
               </div>
-
             </div>
 
             <div class="col-md-6 portlets">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <div class="pull-left">Quick Post</div>
+                  <div class="pull-left"><h2>{{ $t('quick_post') }}</h2></div>
                   <div class="widget-icons pull-right">
                     <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                     <a href="#" class="wclose"><i class="fa fa-times"></i></a>
@@ -125,6 +121,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Form } from 'vform'
+import axios from 'axios'
 
 export default {
   middleware: 'auth',
@@ -143,8 +140,15 @@ export default {
     postStatuses: [
       'Todo',
       'Done',
-    ]
+    ],
+    posts: '',
   }),
+
+  mounted () {
+    axios
+      .get('api/posts')
+      .then(response => (this.posts = response.data))
+  },
 
   methods: {
     async savePostDraft () {

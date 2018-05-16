@@ -15,11 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('user_id', Auth::user()->id)->paginate(10);
+        //$posts = Post::where('user_id', Auth::user()->id)->paginate(10);
+        $posts = Post::where('status', 'done')->get();
 
-        return response()->json([
-            'posts', $posts,
-        ]);
+        return response()->json($posts);
     }
 
     /**
